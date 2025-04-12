@@ -9,22 +9,57 @@
     .modal-content {
       transition: all 0.3s ease;
     }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+    
+    .animate-delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .animate-delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .hover-float {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-float:hover {
+      transform: translateY(-5px);
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
 
   <!-- Navigation -->
-  <nav class="fixed w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800">
+  <nav class="fixed w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800 animate-slide-in">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
         <div class="flex items-center space-x-2">
-          <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><path d="M9 12l12-2"></path><path d="M9 6l12-2"></path><path d="M3 22v-6a4 4 0 014-4h14"></path></svg>
+          <!-- Logo Image -->
+          <img src="logo.png" alt="Ctrl+Alt+Delight Logo" class="h-8 w-8 text-blue-500 hover-float" />
           <span class="font-bold text-xl text-white">Ctrl+Alt+Delight</span>
         </div>
         <div class="hidden md:flex space-x-8">
-          <a href="#about" class="text-gray-300 hover:text-blue-500 transition-colors">About Us</a>
-          <a href="#portfolio" class="text-gray-300 hover:text-blue-500 transition-colors">Portfolio</a>
-          <a href="#contact" class="text-gray-300 hover:text-blue-500 transition-colors">Contact</a>
+          <a href="#about" class="text-gray-300 hover:text-blue-500 transition-colors hover-float">About Us</a>
+          <a href="#portfolio" class="text-gray-300 hover:text-blue-500 transition-colors hover-float">Portfolio</a>
+          <a href="#contact" class="text-gray-300 hover:text-blue-500 transition-colors hover-float">Contact</a>
         </div>
       </div>
     </div>
@@ -33,23 +68,26 @@
   <!-- Hero -->
   <section class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800">
     <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">Control the Future.<br />Alt the Approach.<br /><span class="text-blue-500">Delight the clients.</span></h1>
-      <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">We're not just tech-savvy teens – we're innovative problem solvers bringing fresh perspectives to software development.</p>
+      <!-- Logo in Hero Section -->
+      <img src="logo.png" alt="Ctrl+Alt+Delight Logo" class="mx-auto mb-6 h-16 w-16" />
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">Control the Future.<br />Alt the Approach.<br /><span class="text-blue-500">Delight the clients.</span></h1>
+      <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto animate-fade-in animate-delay-1">We're not just tech-savvy teens – we're innovative problem solvers bringing fresh perspectives to software development.</p>
     </div>
   </section>
+
 
   <!-- About -->
   <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
     <div class="max-w-7xl mx-auto text-center mb-12">
-      <h2 class="text-3xl font-bold mb-6">Our Story</h2>
-      <p class="text-gray-300 max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 animate-fade-in">Our Story</h2>
+      <p class="text-gray-300 max-w-3xl mx-auto animate-fade-in animate-delay-1">
         Founded by two 13-year-old tech enthusiasts, Ctrl+Alt+Delight was born from our passion for creating innovative digital solutions. Our age isn't just a number – it's our superpower.
         <hr class="my-4 border-gray-600" />
         Being young means we bring fresh perspectives unburdened by traditional constraints. We see possibilities where others might see limitations, and our natural affinity for emerging technologies allows us to create cutting-edge solutions that resonate with the next generation of users.
       </p>
     </div>
     <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-      <button onclick="toggleModal('alex-modal')" class="group relative bg-gray-900 rounded-xl shadow-sm hover:shadow-xl overflow-hidden">
+      <button onclick="toggleModal('alex-modal')" class="group relative bg-gray-900 rounded-xl shadow-sm hover:shadow-xl overflow-hidden hover-float animate-fade-in">
         <div class="aspect-square rounded-full overflow-hidden">
           <img src="https://www.shutterstock.com/image-vector/unknown-person-hidden-covered-masked-600nw-1552977773.jpg" alt="Alex Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         </div>
@@ -58,7 +96,7 @@
           <p class="text-gray-400">Full-stack Developer & AI Enthusiast</p>
         </div>
       </button>
-      <button onclick="toggleModal('sarah-modal')" class="group relative bg-gray-900 rounded-xl shadow-sm hover:shadow-xl overflow-hidden">
+      <button onclick="toggleModal('sarah-modal')" class="group relative bg-gray-900 rounded-xl shadow-sm hover:shadow-xl overflow-hidden hover-float animate-fade-in animate-delay-1">
         <div class="aspect-square rounded-full overflow-hidden">
           <img src="https://www.shutterstock.com/image-vector/unknown-person-hidden-covered-masked-600nw-1552977773.jpg" alt="Sarah Martinez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         </div>
@@ -78,7 +116,7 @@
           <h3 class="text-2xl font-bold text-gray-900">Alex Chen</h3>
           <p class="text-gray-600">Full-stack Developer & AI Enthusiast</p>
         </div>
-        <button onclick="toggleModal('alex-modal')" class="text-gray-500 hover:text-gray-700">✕</button>
+        <button onclick="toggleModal('alex-modal')" class="text-gray-500 hover:text-gray-700 hover-float">✕</button>
       </div>
       <p class="text-gray-600 mb-4">
         Alex is a passionate full-stack developer who started coding at the age of 10. With a keen interest in AI and machine learning, he's already developed several innovative projects that showcase the potential of young developers in the tech industry.
@@ -94,7 +132,7 @@
           <h3 class="text-2xl font-bold text-gray-900">Sarah Martinez</h3>
           <p class="text-gray-600">UI/UX Designer & Mobile Developer</p>
         </div>
-        <button onclick="toggleModal('sarah-modal')" class="text-gray-500 hover:text-gray-700">✕</button>
+        <button onclick="toggleModal('sarah-modal')" class="text-gray-500 hover:text-gray-700 hover-float">✕</button>
       </div>
       <p class="text-gray-600 mb-4">
         Sarah is a creative UI/UX designer and mobile developer who brings a fresh perspective to every project. Her intuitive design approach and technical skills have already earned recognition in several youth tech competitions.
@@ -105,11 +143,11 @@
   <!-- Portfolio -->
   <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Work</h2>
+      <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in">Our Work</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Example Project Cards -->
         <div class="group relative overflow-hidden rounded-lg bg-gray-800 transform transition-all duration-300">
-          <img src="https://images.unsplash.com/photo-1460925467585-c15649e9b9e0?auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" />
+          <img src="https://burst.shopifycdn.com/photos/macbook-air-on-desk.jpg?width=1000&format=pjpg&exif=0&iptc=0" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6">
             <div>
               <h3 class="text-white font-semibold text-xl">Project 1</h3>
